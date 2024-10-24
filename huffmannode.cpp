@@ -4,7 +4,8 @@
 // Implement all the HuffmanNode methods here
 
 // Creates a Huffman tree node with a given frequency.
-HuffmanNode::HuffmanNode(double freq) : frequency(freq) {}
+HuffmanNode::HuffmanNode(double freq) 
+    : frequency(freq) {}
 
 // Cleans up the memory held by the node.  Subclasses must
 // override this destructor to provide any extra
