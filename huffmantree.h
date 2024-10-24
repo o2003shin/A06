@@ -21,7 +21,7 @@ public:
     HuffmanTree(HuffmanTree&&) = delete;
     HuffmanTree& operator=(const HuffmanTree&) = delete;
     HuffmanTree& operator=(HuffmanTree&&) = delete;
-
+    
     // Draws a picture of the tree sideways with text using 
     // the adapted tree_printer.h code.
     void draw() const;
