@@ -30,7 +30,7 @@ void display_frequency(std::map<char, int>& frequency) {
         std::cout << pair.first << ": " << pair.second << std::endl;
         tot += pair.second;
     }
-    std::cout << "Total = " << tot << std::endl << "---------------------" << std::endl;
+    std::cout << "Total = " << tot << std::endl << "---------------------------------" << std::endl;
 }
 
 int main() {
@@ -39,7 +39,7 @@ int main() {
     std::map<char, int> frequency;
     count_letters(frequency);
     std::cout << std::endl;
-    std::cout << std::endl << "Counts:" << std::endl << "------" << std::endl;
+    std::cout << std::endl << "Counts:" << std::endl << "-------" << std::endl;
 
     // 2. Display the number of occurrences of each letter.
     display_frequency(frequency);
@@ -53,10 +53,15 @@ int main() {
 
     // 5. Print the Huffman codes for each letter.
 
+
     // 6. Print the number of bits required for a fixed-width
     //    encoding of the file (5 bits per letter for 26 letters).
 
+
+
     // 7. Print the number of bits required for a Huffman
     //    encoding of the file.
+
+    
 }
 
