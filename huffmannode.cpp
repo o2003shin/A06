@@ -18,21 +18,6 @@ double HuffmanNode::get_frequency() const
     return frequency;
 }
 
-// Returns the string representation of this Huffman
-// tree node. (Used when drawing the tree.)
-std::string HuffmanNode::to_string() const
-{
-    return "";
-}
-
-// Gets the code associated with the character c.
-// Derived classes must override this method.
-std::string HuffmanNode::get_code(char c) const 
-{ 
-    (void) c;
-    return "";
-}
-
 // Returns a pointer to the node's left subtree or null if it
 // is a leaf.
 HuffmanNode* HuffmanNode::get_left() const 
@@ -47,5 +32,9 @@ HuffmanNode* HuffmanNode::get_right() const
     return nullptr;
 }
 
-// This constant string is available to all the methods
+std::string HuffmanNode::to_string() const {
+    return "no string";
+}
+
+// NO_MATCH constant
 const std::string HuffmanNode::NO_MATCH{"NO MATCH"};

@@ -5,15 +5,22 @@
 #include <queue>
 #include "huffmantree.h"
 
+//  Name: Oswin Shin
+//  Assignment number: 6
+//  Assignment: Huffman Encoding Tree
+//  File name: main.cpp
+//  Date last modified: October 25, 2024
+//  Honor statement: I have neither given nor received any unauthorized help on this assignment. 
+
 // Add any helper functions as needed
 void count_letters(std::map<char, int>& frequency) {
     char ch;
     while(std::cin.get(ch)) {
-        if (isalpha(ch)) {
+        if (((int)ch >= 65 && (int)ch <= 90) || ((int)ch >= 97 && (int)ch <= 122)) {
             ch = static_cast<char>(toupper(ch));
             std::cout << ch;
             frequency[ch]++;
-        }
+        } 
     }
 }
 
@@ -23,7 +30,7 @@ void display_frequency(std::map<char, int>& frequency) {
         std::cout << pair.first << ": " << pair.second << std::endl;
         tot += pair.second;
     }
-    std::cout << "Total = " << tot << std::endl << "---------------------";
+    std::cout << "Total = " << tot << std::endl << "---------------------" << std::endl;
 }
 
 int main() {
@@ -33,12 +40,16 @@ int main() {
     count_letters(frequency);
     std::cout << std::endl;
     std::cout << std::endl << "Counts:" << std::endl << "------" << std::endl;
+
     // 2. Display the number of occurrences of each letter.
     display_frequency(frequency);
+
     // 3. Build the Huffman tree from the std::map of letters
     //    with their associated counts.
+    HuffmanTree* tree = new HuffmanTree(frequency);
     
     // 4. Draw the Huffman tree.
+    tree->draw();
 
     // 5. Print the Huffman codes for each letter.
 
