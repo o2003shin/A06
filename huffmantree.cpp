@@ -68,5 +68,5 @@ void HuffmanTree::draw() const {
 // Returns the Huffman encoded binary string for the given
 // character.
 std::string HuffmanTree::get_code(char ch) const {
-    return "";
+    return root->get_code(ch); // returns the code
 }

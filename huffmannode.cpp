@@ -33,7 +33,7 @@ HuffmanNode* HuffmanNode::get_right() const
 }
 
 std::string HuffmanNode::to_string() const {
-    return "no string";
+    return "";
 }
 
 // NO_MATCH constant

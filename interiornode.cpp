@@ -38,6 +38,19 @@ std::string InteriorNode::to_string() const {
 
 
 std::string InteriorNode::get_code(char c) const {
-    return "no string";
+    if (left != nullptr) { // searching the left subtree
+        std::string code = left->get_code(c); // Checks the leafnode get_code() to return "" or NO_MATCH
+        if (code != NO_MATCH) {
+            return "0" + code; // code != NO_MATCH means there was match.
+        }
+    }
+
+    if (right != nullptr) {
+        std::string code = right->get_code(c);
+        if (code != NO_MATCH) {
+            return "1" + code;
+        }
+    }
+    return NO_MATCH;
 }
 
