@@ -10,7 +10,7 @@ LeafNode::LeafNode(char ch, double freq)
 // Returns a displayable string representing the leaf node when
 // drawing the Huffman tree.
 std::string LeafNode::to_string() const {
-    return std::string(1, character) + ":"  + std::to_string(get_frequency());
+    return "[" + std::string(1, character) + ":"  + std::to_string(get_frequency()) + "]";
 }   
 
 // If the c parameter matches this node's character field, it
