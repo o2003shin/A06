@@ -33,6 +33,12 @@ void display_frequency(std::map<char, int>& frequency) {
     std::cout << "Total = " << tot << std::endl << "---------------------------------" << std::endl;
 }
 
+void draw_tree(HuffmanTree* tree) {
+    std::cout << std::endl << std::endl;
+    tree->draw();
+    std::cout << "---------------------------------" << std::endl;
+}
+
 int main() {
     // 1. Get the text and count all the letters in the text
     //    (place in a std::map object).
@@ -49,19 +55,36 @@ int main() {
     HuffmanTree* tree = new HuffmanTree(frequency);
     
     // 4. Draw the Huffman tree.
-    tree->draw();
+    draw_tree(tree);
 
     // 5. Print the Huffman codes for each letter.
-
-
+    std::map<char, std::string> huffman_codes; // Holds char: huffman code
+    for (const auto& pair : frequency) {
+        char ch = pair.first;
+        std::string code = tree->get_code(ch);
+        huffman_codes[ch] = code;
+    }
+    for (const auto& pair : huffman_codes) {
+        std::cout << pair.first << ": " << pair.second << std::endl; 
+    }
+    std::cout << std::endl;
     // 6. Print the number of bits required for a fixed-width
     //    encoding of the file (5 bits per letter for 26 letters).
-
-
+    int totalChars = 0;
+    for (const auto& pair : frequency) {
+        totalChars += pair.second;
+    }
+    int fixed_width_bits = 5 * totalChars;
+    std::cout << "   Fixed Encoding: " << fixed_width_bits << " bits" << std::endl;
 
     // 7. Print the number of bits required for a Huffman
     //    encoding of the file.
-
-    
+    size_t huffman_encoding_bits = 0;
+    for (const auto& pair : huffman_codes) {
+        std::string code = pair.second;
+        int char_frequency = frequency[pair.first]; // Mapping to the character's frequency
+        huffman_encoding_bits += static_cast<int>(char_frequency) * code.length();
+    }
+    std::cout << " Huffman Encoding: " << huffman_encoding_bits << " bits" << std::endl;
 }
 
